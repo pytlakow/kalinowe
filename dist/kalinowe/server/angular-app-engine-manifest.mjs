@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/kalinowe',
+  basePath: '/',
   supportedLocales: {
   "en-US": ""
 },

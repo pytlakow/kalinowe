@@ -1,11 +1,11 @@
-<div class="min-h-screen flex flex-col items-center justify-center px-4">
+<div class="min-h-screen flex flex-col items-center justify-start px-4">
   <p
-    class="text-xl text-gray-700 mb-8 text-center max-w-2xl"
+    class="text-2xl text-gray-700 mb-8 text-center max-w-2xl mt-8"
     [innerText]="rows()[2]._1 || ''"
   ></p>
 
   <div class="w-full overflow-x-auto">
-    <table class="table-auto min-w-[1500px]">
+    <table class="table-auto min-w-[1500px] mx-auto">
       <thead>
         <tr class="bg-gray-200">
           <th class="text-left" [innerText]="rows()[3]._1 || ''"></th>
@@ -18,37 +18,79 @@
           <th class="text-left" [innerText]="rows()[3]._8 || ''"></th>
           <th class="text-left" [innerText]="rows()[3]._9 || ''"></th>
           <th class="text-left" [innerText]="rows()[3]._10 || ''"></th>
-         
         </tr>
-                  <tbody>
+      </thead>
+
+      <tbody>
         @for (rowInx of rowsRangeTable; track rowInx) {
-          <tr class="{{ rowInx % 2 === 0 ? 'bg-gray-100' : '' }}">
-            @for (col of columnsTable; track col) {
-              <td class="w-[200px]" [innerText]="rows()[rowInx]['_' + col] || ''"></td>
-            }
-          </tr>
+        <tr class="{{ rowInx % 2 === 0 ? 'bg-gray-100' : '' }}">
+          @for (col of columnsTable; track col) {
+          <td
+            class="w-[200px]"
+            [innerText]="rows()[rowInx]['_' + col] || ''"
+          ></td>
+          }
+        </tr>
         }
       </tbody>
     </table>
   </div>
-   <p
+
+  <p
     class="text-xl text-gray-700 mb-4 text-center max-w-2xl mt-8"
     [innerText]="rows()[2]._12 || ''"
   ></p>
-  <div class="flex justify-center items-center">
-   <div class="w-full overflow-x-auto text-center ">
-    <table class="table-auto min-w-[500px]">
-     
-                  <tbody>
+
+  <div class="w-full overflow-x-auto text-center">
+    <table class="table-auto min-w-[500px] mx-auto">
+      <tbody>
         @for (rowInx of rowsRangeFixtures; track rowInx) {
-          <tr class="{{ rows()[rowInx]['_13'].includes('olejk') ? 'bg-gray-100' : '' }}">
-            @for (col of columnsFixtures; track col) {
-              <td class="w-[200px]" [innerText]="rows()[rowInx]['_' + col] || ''"></td>
-            }
-          </tr>
+        <tr
+          class="{{
+            rows()[rowInx]['_13'].includes('olejk') ? 'bg-gray-100' : ''
+          }}"
+        >
+          @for (col of columnsFixtures; track col) {
+          <td
+            class="w-[200px]"
+            [innerText]="rows()[rowInx]['_' + col] || ''"
+          ></td>
+          }
+        </tr>
         }
       </tbody>
     </table>
   </div>
+
+  <p
+    class="text-xl text-gray-700 mb-4 text-center max-w-2xl mt-8"
+    [innerText]="rows()[2]._16 || ''"
+  ></p>
+
+  <div class="w-full overflow-x-auto text-center">
+    <table class="table-auto min-w-[500px] mx-auto">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="w-[20px]" [innerText]="rows()[3]._16 || ''"></th>
+          <th class="w-[200px]" [innerText]="rows()[3]._17 || ''"></th>
+          <th class="" [innerText]="rows()[3]._18 || ''"></th>
+          <th class="" [innerText]="rows()[3]._19 || ''"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (rowInx of rowsRangeStrikers; track rowInx) {
+        <tr
+         
+        >
+          @for (col of columnsStrikers; track col) {
+          <td
+            class="w-[200px]"
+            [innerText]="rows()[rowInx]['_' + col] || ''"
+          ></td>
+          }
+        </tr>
+        }
+      </tbody>
+    </table>
   </div>
 </div>

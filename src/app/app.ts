@@ -19,6 +19,9 @@ export class App {
   columnsFixtures = Array.from({ length: 3 }, (_, idx) => idx + 12);
   rowsRangeFixtures = Array.from({ length: 42 }, (_, idx) => idx + 3);
 
+  columnsStrikers = Array.from({ length: 4 }, (_, idx) => idx + 16);
+  rowsRangeStrikers = Array.from({ length: 63 }, (_, idx) => idx + 4);
+
   constructor(private http: HttpClient) {}
 
   public rows = signal<any[]>([]);
